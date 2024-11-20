@@ -1,0 +1,12 @@
+{
+  "name": "demo-sim",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "scenerystack": "file:../scenerystack"
+  },
+  "devDependencies": {
+
+  }
+}
