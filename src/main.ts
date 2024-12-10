@@ -1,5 +1,4 @@
-import './globals.js';
-import './brand.js';
+import './init.js';
 import 'scenerystack/splash';
 import { asyncLoader } from "scenerystack/phet-core";
 import { Screen, ScreenOptions, ScreenView, ScreenViewOptions, Sim, SimOptions } from "scenerystack/sim";
@@ -8,10 +7,7 @@ import { StringProperty } from 'scenerystack/axon';
 import { Tandem } from 'scenerystack/tandem';
 
 // Signify that the simLauncher was called, see https://github.com/phetsims/joist/issues/142
-window.phet.joist = window.phet.joist || {};
 window.phet.joist.launchCalled = true;
-
-window.phet.chipper.allowLocaleSwitching = true;
 
 console.log( 'tests' );
 
@@ -92,48 +88,3 @@ asyncLoader.addListener( () => {
 
 } );
 unlockLaunch();
-
-
-  // window.phet = window.phet || {};
-  // window.phet.chipper = window.phet.chipper || {};
-  // window.phet.chipper.packageObject =
-  //   {
-  //     "name": "demo-sim",
-  //     "version": "0.0.1",
-  //     "license": "MIT",
-  //     "repository": {
-  //       "type": "git",
-  //       "url": "https://github.com/scenerystack/demo-sim.git"
-  //     },
-  //     "devDependencies": {
-  //       "grunt": "~1.5.3"
-  //     },
-  //     "phet": {
-  //       "requirejsNamespace": "DEMO_SIM",
-  //       "runnable": true,
-  //       "supportedBrands": [
-  //         "phet",
-  //         "phet-io",
-  //         "adapted-from-phet"
-  //       ],
-  //       "simulation": true,
-  //       "supportsOutputJS": true,
-  //       "simFeatures": {
-  //         "supportsSound": true,
-  //         "supportsInteractiveDescription": true,
-  //         "supportsDynamicLocale": true,
-  //         "colorProfiles": [
-  //           "default"
-  //         ]
-  //       },
-  //       "published": true,
-  //       "screenNameKeys": [
-  //         "DEMO_SIM/screen.one",
-  //         "DEMO_SIM/screen.two"
-  //       ]
-  //     }
-  //   };
-  // window.phet.chipper.allowLocaleSwitching = true;
-
-  // TODO: load-unbuilt-strings!!
-// TODO: simLauncher mostly calls window.phet.joist.launchSimulation();, within a asyncLoader.addListener( () => { ... } ) .. first lock, then release lock

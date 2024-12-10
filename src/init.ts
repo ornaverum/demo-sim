@@ -1,5 +1,17 @@
+import { splash_svg } from 'scenerystack/adapted-from-phet';
+import { init } from 'scenerystack/init';
 import { brand, TBrand } from 'scenerystack/brand';
 import { logo_png, logoOnWhite_png } from 'scenerystack/adapted-from-phet';
+
+init( {
+  name: 'demo-sim',
+  version: '1.0.0',
+  brand: 'adapted-from-phet',
+  locale: 'en',
+  isDebugBuild: false,
+  allowLocaleSwitching: true,
+  splashDataURI: splash_svg.src
+} );
 
 const Brand: TBrand = {
 
