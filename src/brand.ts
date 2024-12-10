@@ -1,4 +1,5 @@
-import { brand, TBrand, adapted_from_phet_logo_png, adapted_from_phet_logoOnWhite_png } from 'scenerystack/brand';
+import { brand, TBrand } from 'scenerystack/brand';
+import { logo_png, logoOnWhite_png } from 'scenerystack/adapted-from-phet';
 
 const Brand: TBrand = {
 
@@ -20,8 +21,8 @@ const Brand: TBrand = {
    * For example: { textStringProperty: new Property( "My Company Support" ), url: "https://www.mycompany.com/support" }
    */
   getLinks: function() { return []; },
-  logoOnBlackBackground: adapted_from_phet_logo_png,
-  logoOnWhiteBackground: adapted_from_phet_logoOnWhite_png
+  logoOnBlackBackground: logo_png,
+  logoOnWhiteBackground: logoOnWhite_png
 };
 
 brand.register( 'Brand', Brand );
