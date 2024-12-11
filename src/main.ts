@@ -1,5 +1,5 @@
 import 'scenerystack/splash';
-import { onReadyToLaunch, Screen, ScreenOptions, ScreenView, ScreenViewOptions, Sim, SimOptions } from 'scenerystack/sim';
+import { onReadyToLaunch, Screen, ScreenOptions, ScreenView, ScreenViewOptions, Sim } from 'scenerystack/sim';
 import { ResetAllButton } from "scenerystack/scenery-phet";
 import { StringProperty } from 'scenerystack/axon';
 import { Tandem } from 'scenerystack/tandem';
@@ -36,7 +36,8 @@ class DemoSimModel {
   public reset(): void {
 
   }
-  public step( dt: number ): void {
+
+  public step( _dt: number ): void {
 
   }
 }
@@ -62,7 +63,7 @@ class DemoSimScreenView extends ScreenView {
 
   }
 
-  public step( dt: number ): void {
+  public step( _dt: number ): void {
 
   }
 }
@@ -84,21 +85,6 @@ onReadyToLaunch( () => {
     new DemoSimScreen( { tandem: Tandem.ROOT.createTandem( 'simulaRasaScreen' ) } )
   ];
 
-  const options: SimOptions = {
-
-    //TODO fill in credits, all of these fields are optional, see joist.CreditsNode
-    credits: {
-      leadDesign: '',
-      softwareDevelopment: '',
-      team: '',
-      contributors: '',
-      qualityAssurance: '',
-      graphicArts: '',
-      soundDesign: '',
-      thanks: ''
-    }
-  };
-
-  const sim = new Sim( titleStringProperty, screens, options );
+  const sim = new Sim( titleStringProperty, screens );
   sim.start();
 } );
