@@ -68,6 +68,8 @@ class DemoSimScreenView extends ScreenView {
   }
 }
 
+console.log( 'test' );
+
 class DemoSimScreen extends Screen<DemoSimModel, DemoSimScreenView> {
   public constructor( options: ScreenOptions ) {
     super(
