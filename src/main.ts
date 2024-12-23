@@ -4,20 +4,35 @@ import './init.ts';
 import 'scenerystack/splash';
 import './brand.ts';
 
-import { onReadyToLaunch, Sim } from 'scenerystack/sim';
-import { StringProperty } from 'scenerystack/axon';
-import { Tandem } from 'scenerystack/tandem';
-import { DemoSimScreen } from './demo-screen/DemoSimScreen.js';
+import { onReadyToLaunch, Sim, SimOptions } from 'scenerystack/sim';
+import { DemoSimStrings } from './DemoSimStrings.js';
+import { MagnetsScreen } from './magnets/MagnetsScreen.js';
+import { ParticlesScreen } from './particles/ParticlesScreen.js';
 
 onReadyToLaunch( () => {
-  // The title, like most string-like things, is a StringProperty that can change to different values (e.g. for
-  // different languages, see localeProperty from scenerystack/joist)
-  const titleStringProperty = new StringProperty( 'Demo Simulation' );
+  const titleStringProperty = DemoSimStrings.titleStringProperty;
 
   const screens = [
-    new DemoSimScreen( { tandem: Tandem.ROOT.createTandem( 'demoSimScreen' ) } )
+    new MagnetsScreen(),
+    new ParticlesScreen()
   ];
 
-  const sim = new Sim( titleStringProperty, screens );
+  const options: SimOptions = {
+
+    // These credits will appear in the About dialog, accessed from the PhET menu in the navigation bar.
+    // All credits fields are optional, see joist.AboutDialog.
+    credits: {
+      leadDesign: 'Boris',
+      softwareDevelopment: 'Natasha',
+      team: 'Chico, Groucho, Gummo, Harpo, Zeppo',
+      contributors: 'Betty, Veronica',
+      qualityAssurance: 'Curly, Larry, Moe',
+      graphicArts: 'Dali, Picasso, Warhol',
+      soundDesign: 'Bach, Mozart',
+      thanks: 'Thanks to the ACME Dynamite Company for funding this sim!'
+    }
+  };
+
+  const sim = new Sim( titleStringProperty, screens, options );
   sim.start();
 } );
