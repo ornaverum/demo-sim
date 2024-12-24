@@ -13,7 +13,6 @@ import { TModel } from "scenerystack/joist";
  */
 
 export class BarMagnet implements TModel {
-
   // the size of the bar magnet in model coordinates
   public readonly size: Dimension2;
 
@@ -28,10 +27,10 @@ export class BarMagnet implements TModel {
    * position - the position of the bar magnet in model coordinates
    * orientation - in radians
    */
-  public constructor( size: Dimension2, position: Vector2, orientation: number ) {
+  public constructor(size: Dimension2, position: Vector2, orientation: number) {
     this.size = size;
-    this.positionProperty = new Property( position );
-    this.orientationProperty = new Property( orientation );
+    this.positionProperty = new Property(position);
+    this.orientationProperty = new Property(orientation);
   }
 
   /**

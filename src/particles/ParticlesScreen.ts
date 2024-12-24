@@ -4,8 +4,8 @@ import { EmptySelfOptions, optionize4 } from "scenerystack/phet-core";
 import { Screen, ScreenIcon, ScreenOptions } from "scenerystack/sim";
 import { ParticlesModel } from "./model/ParticlesModel";
 import { ParticlesScreenView } from "./view/ParticlesScreenView";
-import { DemoSimConstants } from '../common/DemoSimConstants.js';
-import { DemoSimStrings } from '../DemoSimStrings.js';
+import { DemoSimConstants } from "../common/DemoSimConstants.js";
+import { DemoSimStrings } from "../DemoSimStrings.js";
 import { Tandem } from "scenerystack/tandem";
 import { ShadedSphereNode } from "scenerystack/scenery-phet";
 import { DemoSimColors } from "../common/DemoSimColors.js";
@@ -24,23 +24,30 @@ type SelfOptions = EmptySelfOptions;
 
 type ParticlesScreenOptions = SelfOptions & ScreenOptions;
 
-export class ParticlesScreen extends Screen<ParticlesModel, ParticlesScreenView> {
-
-  public constructor( providedOptions?: ParticlesScreenOptions ) {
-
-    const options = optionize4<ParticlesScreenOptions, SelfOptions, ScreenOptions>()(
-      {}, DemoSimConstants.SCREEN_OPTIONS,
+export class ParticlesScreen extends Screen<
+  ParticlesModel,
+  ParticlesScreenView
+> {
+  public constructor(providedOptions?: ParticlesScreenOptions) {
+    const options = optionize4<
+      ParticlesScreenOptions,
+      SelfOptions,
+      ScreenOptions
+    >()(
+      {},
+      DemoSimConstants.SCREEN_OPTIONS,
       {
         name: DemoSimStrings.screen.particlesStringProperty,
         homeScreenIcon: createScreenIcon(),
-        tandem: Tandem.OPT_OUT
+        tandem: Tandem.OPT_OUT,
       },
-      providedOptions );
+      providedOptions,
+    );
 
     super(
       () => new ParticlesModel(),
-      model => new ParticlesScreenView( model ),
-      options
+      (model) => new ParticlesScreenView(model),
+      options,
     );
   }
 }
@@ -50,10 +57,10 @@ export class ParticlesScreen extends Screen<ParticlesModel, ParticlesScreenView>
  * Always use ScreenIcon for screen icons.
  */
 function createScreenIcon(): ScreenIcon {
-  const iconNode = new ShadedSphereNode( 100, {
-    mainColor: DemoSimColors.particleColorProperty
-  } );
-  return new ScreenIcon( iconNode, {
-    fill: DemoSimColors.screenBackgroundColorProperty
-  } );
+  const iconNode = new ShadedSphereNode(100, {
+    mainColor: DemoSimColors.particleColorProperty,
+  });
+  return new ScreenIcon(iconNode, {
+    fill: DemoSimColors.screenBackgroundColorProperty,
+  });
 }

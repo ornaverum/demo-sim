@@ -8,10 +8,9 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { DemoSimColors } from './DemoSimColors.js';
+import { DemoSimColors } from "./DemoSimColors.js";
 
 export const DemoSimConstants = {
-
   // Margins around the edge of the view
   SCREEN_VIEW_X_MARGIN: 20,
   SCREEN_VIEW_Y_MARGIN: 20,
@@ -24,6 +23,6 @@ export const DemoSimConstants = {
     showUnselectedHomeScreenIconFrame: true,
 
     // put a gray border around screen icons when the navigation bar is black
-    showScreenIconFrameForNavigationBarFill: 'black'
-  }
+    showScreenIconFrameForNavigationBarFill: "black",
+  },
 };

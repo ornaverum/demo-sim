@@ -14,26 +14,38 @@
  * @author Franz Amador
  */
 
-import { Namespace } from 'scenerystack/phet-core';
-import { ProfileColorProperty } from 'scenerystack/scenery';
+import { Namespace } from "scenerystack/phet-core";
+import { ProfileColorProperty } from "scenerystack/scenery";
 
-const namespace = new Namespace( 'demo-sim' );
+const namespace = new Namespace("demo-sim");
 
 export const DemoSimColors = {
-  controlPanelBorderColorProperty: new ProfileColorProperty( namespace, 'controlPanelBorder', {
-    default: 'orange'
-  } ),
+  controlPanelBorderColorProperty: new ProfileColorProperty(
+    namespace,
+    "controlPanelBorder",
+    {
+      default: "orange",
+    },
+  ),
 
-  controlPanelButtonColorProperty: new ProfileColorProperty( namespace, 'controlPanelButton', {
-    default: 'yellow'
-  } ),
+  controlPanelButtonColorProperty: new ProfileColorProperty(
+    namespace,
+    "controlPanelButton",
+    {
+      default: "yellow",
+    },
+  ),
 
-  particleColorProperty: new ProfileColorProperty( namespace, 'particle', {
-    default: 'rgb( 160, 160, 160 )'
-  } ),
+  particleColorProperty: new ProfileColorProperty(namespace, "particle", {
+    default: "rgb( 160, 160, 160 )",
+  }),
 
   // Background color for screens in this sim
-  screenBackgroundColorProperty: new ProfileColorProperty( namespace, 'background', {
-    default: 'black'
-  } )
+  screenBackgroundColorProperty: new ProfileColorProperty(
+    namespace,
+    "background",
+    {
+      default: "black",
+    },
+  ),
 };

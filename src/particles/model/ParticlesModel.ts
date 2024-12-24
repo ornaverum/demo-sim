@@ -1,7 +1,7 @@
 // Copyright 2021-2024, University of Colorado Boulder
 
 import { Vector2 } from "scenerystack/dot";
-import { Particle } from './Particle.js';
+import { Particle } from "./Particle.js";
 import { BooleanProperty, Emitter } from "scenerystack/axon";
 
 /**
@@ -16,42 +16,39 @@ import { BooleanProperty, Emitter } from "scenerystack/axon";
  */
 
 // constants
-const GRAVITY = new Vector2( 0, -20 ); // in nm/sec
+const GRAVITY = new Vector2(0, -20); // in nm/sec
 const OPACITY_DELTA = 0.02; // opacity is decreased by this amount on each animation step
 
 export class ParticlesModel {
-
   // the complete set of particles
   public particles: Particle[] = [];
 
   // Notifies listeners when a Particle is added.
-  public particleAddedEmitter: Emitter<[ Particle ]>;
+  public particleAddedEmitter: Emitter<[Particle]>;
 
   // Notifies listeners when a Particle is removed.
-  public particleRemovedEmitter: Emitter<[ Particle ]>;
+  public particleRemovedEmitter: Emitter<[Particle]>;
 
   // Whether the model is advanced on each call to step.
   public isPlayingProperty: BooleanProperty;
 
   public constructor() {
-
-    this.particleAddedEmitter = new Emitter( {
-      parameters: [ { valueType: Particle } ]
-    } );
-    this.particleRemovedEmitter = new Emitter( {
-      parameters: [ { valueType: Particle } ]
-    } );
-    this.isPlayingProperty = new BooleanProperty( true );
+    this.particleAddedEmitter = new Emitter({
+      parameters: [{ valueType: Particle }],
+    });
+    this.particleRemovedEmitter = new Emitter({
+      parameters: [{ valueType: Particle }],
+    });
+    this.isPlayingProperty = new BooleanProperty(true);
   }
 
   /**
    * Resets the model to its initial state. This method is called when the simulation's "Reset All" button is pressed.
    */
   public reset(): void {
-
     // Remove all particles.
-    while ( this.particles.length > 0 ) {
-      this.removeParticle( this.particles[ this.particles.length - 1 ] );
+    while (this.particles.length > 0) {
+      this.removeParticle(this.particles[this.particles.length - 1]);
     }
   }
 
@@ -60,7 +57,7 @@ export class ParticlesModel {
    * dt - time step, in seconds
    */
   public step(): void {
-    if ( this.isPlayingProperty.value ) {
+    if (this.isPlayingProperty.value) {
       this.stepOnce();
     }
   }
@@ -69,36 +66,37 @@ export class ParticlesModel {
    * Steps the model one step. Called directly when using the step button of the time control.
    */
   public stepOnce(): void {
-
     // Create some new particles
-    for ( let i = 0; i < 3; i++ ) {
+    for (let i = 0; i < 3; i++) {
       const particle = new Particle();
-      this.particles.push( particle );
-      this.particleAddedEmitter.emit( particle );
+      this.particles.push(particle);
+      this.particleAddedEmitter.emit(particle);
     }
 
     // For each Particle...
-    this.particles.forEach( particle => {
-
+    this.particles.forEach((particle) => {
       // Apply a force, resulting in motion.
-      particle.applyForce( GRAVITY );
+      particle.applyForce(GRAVITY);
 
       // Reduce opacity.
-      particle.opacityProperty.value = Math.max( 0, particle.opacityProperty.value - OPACITY_DELTA );
+      particle.opacityProperty.value = Math.max(
+        0,
+        particle.opacityProperty.value - OPACITY_DELTA,
+      );
 
       // Remove particles that have become invisible.
-      if ( particle.opacityProperty.value === 0 ) {
-        this.removeParticle( particle );
+      if (particle.opacityProperty.value === 0) {
+        this.removeParticle(particle);
       }
-    } );
+    });
   }
 
   /**
    * Removes a particle.
    */
-  private removeParticle( particle: Particle ): void {
-    this.particles.splice( this.particles.indexOf( particle ), 1 );
-    this.particleRemovedEmitter.emit( particle );
+  private removeParticle(particle: Particle): void {
+    this.particles.splice(this.particles.indexOf(particle), 1);
+    this.particleRemovedEmitter.emit(particle);
     particle.dispose();
   }
 }

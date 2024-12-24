@@ -4,7 +4,7 @@ import { NumberProperty } from "scenerystack/axon";
 import { dotRandom, Range, Vector2, Vector2Property } from "scenerystack/dot";
 import { combineOptions } from "scenerystack/phet-core";
 import { Color } from "scenerystack/scenery";
-import { DemoSimColors } from '../../common/DemoSimColors.js';
+import { DemoSimColors } from "../../common/DemoSimColors.js";
 import { affirm } from "scenerystack/perennial";
 
 /**
@@ -15,7 +15,7 @@ import { affirm } from "scenerystack/perennial";
 
 // constants
 const DEFAULT_DIAMETER = 2000; // in nm
-const DEFAULT_POSITION = new Vector2( 0, 0 ); // in nm
+const DEFAULT_POSITION = new Vector2(0, 0); // in nm
 
 type SelfOptions = {
   diameter?: number; // in nm
@@ -26,7 +26,6 @@ type SelfOptions = {
 export type ParticleOptions = SelfOptions;
 
 export class Particle {
-
   // the particle's diameter, in nm
   public readonly diameter: number;
 
@@ -43,24 +42,28 @@ export class Particle {
   // whether this particle has been disposed, and should therefore no longer be used
   public isDisposed: boolean;
 
-  public constructor( providedOptions?: ParticleOptions ) {
-
+  public constructor(providedOptions?: ParticleOptions) {
     // Demonstrate a common pattern for specifying options and providing default values
-    const options = combineOptions<ParticleOptions>( {
-
-      // Default values for optional SelfOptions
-      diameter: DEFAULT_DIAMETER,
-      position: DEFAULT_POSITION,
-      color: DemoSimColors.particleColorProperty.value
-    }, providedOptions );
+    const options = combineOptions<ParticleOptions>(
+      {
+        // Default values for optional SelfOptions
+        diameter: DEFAULT_DIAMETER,
+        position: DEFAULT_POSITION,
+        color: DemoSimColors.particleColorProperty.value,
+      },
+      providedOptions,
+    );
 
     this.diameter = options.diameter!;
-    this.positionProperty = new Vector2Property( options.position! );
+    this.positionProperty = new Vector2Property(options.position!);
     this.color = options.color!;
-    this.velocity = new Vector2( dotRandom.nextIntBetween( -500, 500 ), dotRandom.nextIntBetween( -100, -1000 ) );
-    this.opacityProperty = new NumberProperty( 1, {
-      range: new Range( 0, 1 )
-    } );
+    this.velocity = new Vector2(
+      dotRandom.nextIntBetween(-500, 500),
+      dotRandom.nextIntBetween(-100, -1000),
+    );
+    this.opacityProperty = new NumberProperty(1, {
+      range: new Range(0, 1),
+    });
     this.isDisposed = false;
   }
 
@@ -76,9 +79,11 @@ export class Particle {
   /**
    * Applies a force to the particle, which will result in a change of position.
    */
-  public applyForce( force: Vector2 ): void {
-    affirm( !this.isDisposed, 'attempt to use disposed particle' );
-    this.velocity.add( force );
-    this.positionProperty.value = this.positionProperty.value.plus( this.velocity );
+  public applyForce(force: Vector2): void {
+    affirm(!this.isDisposed, "attempt to use disposed particle");
+    this.velocity.add(force);
+    this.positionProperty.value = this.positionProperty.value.plus(
+      this.velocity,
+    );
   }
 }

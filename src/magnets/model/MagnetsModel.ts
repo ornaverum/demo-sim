@@ -1,7 +1,7 @@
 // Copyright 2013-2024, University of Colorado Boulder
 
 import { TModel } from "scenerystack/joist";
-import { BarMagnet } from './BarMagnet.js';
+import { BarMagnet } from "./BarMagnet.js";
 import { Dimension2, Vector2 } from "scenerystack/dot";
 
 /**
@@ -14,12 +14,15 @@ import { Dimension2, Vector2 } from "scenerystack/dot";
  */
 
 export class MagnetsModel implements TModel {
-
   // initial bar magnet model element
   public readonly barMagnet: BarMagnet;
 
   public constructor() {
-    this.barMagnet = new BarMagnet( new Dimension2( 250, 50 ), new Vector2( 0, 0 ), 0 );
+    this.barMagnet = new BarMagnet(
+      new Dimension2(250, 50),
+      new Vector2(0, 0),
+      0,
+    );
   }
 
   /**
