@@ -21,13 +21,10 @@ const NANOMETERS_PER_PIXEL = 100;
 
 export class ParticlesScreenView extends ScreenView {
 
-  // the parent for all ParticleNode instances
-  private readonly particlesNode: Node;
-
   /**
    * model - the top-level model for this screen
    */
-  public constructor( private readonly model: ParticlesModel ) {
+  public constructor( protected readonly model: ParticlesModel ) {
 
     super();
 
@@ -43,20 +40,8 @@ export class ParticlesScreenView extends ScreenView {
     // button is positioned at the lower-right of the screen.
     const resetAllButton = new ResetAllButton( {
       listener: () => {
-
-        // This is an example of using phet.log. Adding the 'log' query parameter to your URL will enabled phet.log
-        // output to the console. In this example, we will print the size of the model and view arrays before and
-        // after resetting, to confirm that we're not leaking memory.
-        phet.log && phet.log( 'Before reset:' );
-        phet.log && phet.log( `# Particles=${this.model.particles.length}` );
-        phet.log && phet.log( `# ParticlesNodes=${this.particlesNode.children.length}` );
-
         // Reset the model
         model.reset();
-
-        phet.log && phet.log( 'After reset:' );
-        phet.log && phet.log( `# Particles=${this.model.particles.length}` );
-        phet.log && phet.log( `# ParticlesNodes=${this.particlesNode.children.length}` );
       },
       right: this.layoutBounds.right - DemoSimConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.bottom - DemoSimConstants.SCREEN_VIEW_Y_MARGIN
@@ -95,7 +80,5 @@ export class ParticlesScreenView extends ScreenView {
         }
       } );
     } );
-
-    this.particlesNode = particlesNode;
   }
 }

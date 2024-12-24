@@ -59,7 +59,7 @@ export class ParticlesModel {
    * Steps the model each time the clock ticks.
    * dt - time step, in seconds
    */
-  public step( _dt: number ): void {
+  public step(): void {
     if ( this.isPlayingProperty.value ) {
       this.stepOnce();
     }
