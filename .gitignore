@@ -10,6 +10,7 @@ dist
 dist-ssr
 *.local
 .parcel-cache
+tsconfig.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
