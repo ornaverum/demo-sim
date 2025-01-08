@@ -1,0 +1,9 @@
+{
+  "title": "Demo Simulation",
+  "screen": {
+    "magnets": "Magnets",
+    "particles": "Particles"
+  },
+  "magnetControls": "Magnet Controls",
+  "flipPolarity": "Flip Polarity"
+}

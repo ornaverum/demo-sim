@@ -1,0 +1,9 @@
+{
+  "title": "डेमो सिमुलेशन",
+  "screen": {
+    "magnets": "चुंबक",
+    "particles": "कण"
+  },
+  "magnetControls": "चुंबक नियंत्रण",
+  "flipPolarity": "धराएँ उल्टाएँ"
+}

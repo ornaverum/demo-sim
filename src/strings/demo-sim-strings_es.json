@@ -1,0 +1,9 @@
+{
+  "title": "Demo Simulation",
+  "screen": {
+    "magnets": "Imanes",
+    "particles": "Partículas"
+  },
+  "magnetControls": "Controles del Imán",
+  "flipPolarity": "Invertir Polaridad"
+}
