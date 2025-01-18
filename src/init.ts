@@ -13,6 +13,7 @@ init({
   // Should be one of the keys from https://github.com/phetsims/babel/blob/main/localeData.json
   locale: "en",
 
+  // List of locales that are supported (and can be switched between in the simulation while running)
   availableLocales: ["en", "es", "fa_DA", "hi"],
 
   // Image to show while loading the simulation. Can be any image URL.
