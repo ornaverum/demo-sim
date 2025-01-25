@@ -10,7 +10,7 @@
     "parcel-build": "npx tsc && npx parcel build index.html --public-url ."
   },
   "dependencies": {
-    "scenerystack": "^0.0.18"
+    "scenerystack": "0.0.21"
   },
   "devDependencies": {
     "vite": "^5.4.10",
@@ -20,10 +20,11 @@
     "globals": "^15.14.0",
     "@eslint/js": "^9.17.0",
     "typescript-eslint": "^8.18.2",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "vite-raw-plugin": "^1.0.2"
   },
   "title": "Demo Simulation",
-  "author": "Jonathan Olson",
+  "author": "Author",
   "@parcel/resolver-default": {
     "packageExports": true
   }

@@ -8,10 +8,10 @@
  */
 
 import { logGlobal } from "scenerystack/phet-core";
-import QueryStringMachine from "scenerystack/query-string-machine";
+import { QueryStringMachine } from "scenerystack/query-string-machine";
 
 const SCHEMA_MAP = {
-  // None needed for example-sim?
+  // None needed for demo-sim?
 };
 
 export const DemoSimQueryParameters = QueryStringMachine.getAll(SCHEMA_MAP);

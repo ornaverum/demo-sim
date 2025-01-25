@@ -1,0 +1,6 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.ftl": ["@parcel/transformer-inline-string"]
+  }
+}

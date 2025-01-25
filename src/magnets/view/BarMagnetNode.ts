@@ -13,6 +13,9 @@ import barMagnetURL from "../../images/barMagnet_png.js";
 import { Node, Image, DragListener } from "scenerystack/scenery";
 import { BarMagnet } from "../model/BarMagnet";
 import { ModelViewTransform2 } from "scenerystack/phetcommon";
+import { DemoSimMessages } from '../../DemoSimMessages.js';
+import { FluentUtils, PatternMessageProperty } from "scenerystack/chipper";
+import { DerivedProperty } from "scenerystack/axon";
 
 export class BarMagnetNode extends Node {
   /**
@@ -26,6 +29,11 @@ export class BarMagnetNode extends Node {
     super({
       // Show a cursor hand over the bar magnet
       cursor: "pointer",
+
+      // So we can add accessible info
+      tagName: "div",
+
+      accessibleName: FluentUtils.asStringProperty( DemoSimMessages.barMagnetMessageProperty )
     });
 
     // The bar magnet is rendered using an image file. This creates the scenery Node that will render that image
@@ -64,5 +72,11 @@ export class BarMagnetNode extends Node {
     barMagnet.orientationProperty.link((orientation) => {
       this.rotation = orientation;
     });
+
+    this.descriptionContent = new PatternMessageProperty( DemoSimMessages.magnetDescriptionMessageProperty, {
+      degrees: new DerivedProperty( [ barMagnet.orientationProperty ], orientation => {
+        return ( orientation * 180 / Math.PI ) % 360;
+      } )
+    } );
   }
 }
