@@ -1,9 +1,3 @@
-// init should always be at the top. It needs to run before other scenerystack code loads.
-import "./init.ts";
-// splash and brand should be included also before other imports below
-import "scenerystack/splash";
-import "./brand.ts";
-
 import { onReadyToLaunch, Sim, SimOptions } from "scenerystack/sim";
 import { DemoSimStrings } from "./DemoSimStrings.js";
 import { MagnetsScreen } from "./magnets/MagnetsScreen.js";
