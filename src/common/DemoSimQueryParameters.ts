@@ -16,9 +16,6 @@ const SCHEMA_MAP = {
 
 export const DemoSimQueryParameters = QueryStringMachine.getAll(SCHEMA_MAP);
 
-// The schema map is a read-only part of the public API, in case schema details (e.g. validValues) are needed elsewhere.
-DemoSimQueryParameters.SCHEMA_MAP = SCHEMA_MAP;
-
 // Log query parameters
 logGlobal("phet.chipper.queryParameters");
 logGlobal("phet.preloads.phetio.queryParameters");
