@@ -33,6 +33,7 @@ export class MagnetsScreen extends Screen<MagnetsModel, MagnetsScreenView> {
       {
         name: DemoSimStrings.screen.magnetsStringProperty,
         homeScreenIcon: createScreenIcon(),
+        backgroundColorProperty: DemoSimColors.magnetsScreenBackgroundColorProperty,
         tandem: Tandem.OPT_OUT,
       },
       providedOptions,
@@ -53,6 +54,6 @@ export class MagnetsScreen extends Screen<MagnetsModel, MagnetsScreenView> {
 function createScreenIcon(): ScreenIcon {
   const iconNode = new Image(barMagnet_png);
   return new ScreenIcon(iconNode, {
-    fill: DemoSimColors.screenBackgroundColorProperty,
+    fill: DemoSimColors.magnetsScreenBackgroundColorProperty,
   });
 }

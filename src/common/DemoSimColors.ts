@@ -37,15 +37,22 @@ export const DemoSimColors = {
   ),
 
   particleColorProperty: new ProfileColorProperty(namespace, "particle", {
-    default: "rgb( 160, 160, 160 )",
+    default: "rgb( 30, 80, 160 )",
   }),
 
-  // Background color for screens in this sim
-  screenBackgroundColorProperty: new ProfileColorProperty(
+  magnetsScreenBackgroundColorProperty: new ProfileColorProperty(
     namespace,
-    "background",
+    "magnetsBackground",
     {
       default: "black",
+    },
+  ),
+
+  particlesScreenBackgroundColorProperty: new ProfileColorProperty(
+    namespace,
+    "particlesBackground",
+    {
+      default: "#eee",
     },
   ),
 };

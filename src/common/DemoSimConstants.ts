@@ -8,8 +8,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { DemoSimColors } from "./DemoSimColors.js";
-
 export const DemoSimConstants = {
   // Margins around the edge of the view
   SCREEN_VIEW_X_MARGIN: 20,
@@ -17,8 +15,6 @@ export const DemoSimConstants = {
 
   // Options common to all Screens
   SCREEN_OPTIONS: {
-    backgroundColorProperty: DemoSimColors.screenBackgroundColorProperty,
-
     // put a gray border around unselected icons on the home screen
     showUnselectedHomeScreenIconFrame: true,
 

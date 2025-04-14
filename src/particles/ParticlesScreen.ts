@@ -39,6 +39,7 @@ export class ParticlesScreen extends Screen<
       {
         name: DemoSimStrings.screen.particlesStringProperty,
         homeScreenIcon: createScreenIcon(),
+        backgroundColorProperty: DemoSimColors.particlesScreenBackgroundColorProperty,
         tandem: Tandem.OPT_OUT,
       },
       providedOptions,
@@ -61,6 +62,6 @@ function createScreenIcon(): ScreenIcon {
     mainColor: DemoSimColors.particleColorProperty,
   });
   return new ScreenIcon(iconNode, {
-    fill: DemoSimColors.screenBackgroundColorProperty,
+    fill: DemoSimColors.particlesScreenBackgroundColorProperty,
   });
 }
