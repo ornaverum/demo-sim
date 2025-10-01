@@ -2,7 +2,7 @@
 
 import { EmptySelfOptions, optionize } from "scenerystack/phet-core";
 import { Panel, PanelOptions, RectangularPushButton } from "scenerystack/sun";
-import { MagnetsModel } from "../model/MagnetsModel.js";
+import { MagnetsModel } from "../model/MagnetsBallModel.js";
 import { DemoSimColors } from "../../common/DemoSimColors.js";
 import { DemoSimStrings } from "../../DemoSimStrings.js";
 import { Text, VBox } from "scenerystack/scenery";
@@ -63,8 +63,8 @@ export class MagnetsControlPanel extends Panel {
       baseColor: DemoSimColors.controlPanelButtonColorProperty,
       xMargin: 10,
       listener: () => {
-        const orientation = model.barMagnet.orientationProperty.get() + Math.PI;
-        model.barMagnet.orientationProperty.set(orientation);
+        const orientation = model.barMagnets[0]?.orientationProperty.get() + Math.PI;
+        model.barMagnets[0]?.orientationProperty.set(orientation);
       },
     });
 

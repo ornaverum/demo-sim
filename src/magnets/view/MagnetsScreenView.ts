@@ -2,13 +2,14 @@
 
 import { EmptySelfOptions } from "scenerystack/phet-core";
 import { ScreenView, ScreenViewOptions } from "scenerystack/sim";
-import { MagnetsModel } from "../model/MagnetsModel";
+import { MagnetsBallModel } from "../model/MagnetsBallModel";
 import { Vector2 } from "scenerystack/dot";
 import { ModelViewTransform2 } from "scenerystack/phetcommon";
 import { BarMagnetNode } from "./BarMagnetNode";
 import { MagnetsControlPanel } from "./MagnetsControlPanel";
 import { DemoSimConstants } from "../../common/DemoSimConstants";
 import { ResetAllButton } from "scenerystack/scenery-phet";
+import { BallNode } from "./BallNode";
 
 /**
  * MagnetsScreenView is the top-level view component for the 'Magnets' screen. All of the components that make up
@@ -28,7 +29,7 @@ export class MagnetsScreenView extends ScreenView {
    * model - the top-level model for this screen
    */
   public constructor(
-    model: MagnetsModel,
+    model: MagnetsBallModel,
     providedOptions?: MagnetsScreenViewOptions,
   ) {
     super(providedOptions);
@@ -44,7 +45,9 @@ export class MagnetsScreenView extends ScreenView {
     );
 
     // Add a magnet. The model determines its position.
-    this.addChild(new BarMagnetNode(model.barMagnet, modelViewTransform));
+    this.addChild(new BarMagnetNode(model.barMagnets[0], modelViewTransform));
+    this.addChild(new BarMagnetNode(model.barMagnets[1], modelViewTransform));
+    this.addChild(new BallNode(model.ball, modelViewTransform));
 
     // Add the control panel for magnets, positioned at the top-right of the screen.
     this.addChild(

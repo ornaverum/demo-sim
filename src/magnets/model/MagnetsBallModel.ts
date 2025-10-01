@@ -2,6 +2,7 @@
 
 import { TModel } from "scenerystack/joist";
 import { BarMagnet } from "./BarMagnet.js";
+import { Ball } from "./Ball.js";
 import { Dimension2, Vector2 } from "scenerystack/dot";
 
 /**
@@ -13,16 +14,26 @@ import { Dimension2, Vector2 } from "scenerystack/dot";
  * @author Steele Dalton (PhET Interactive Simulations)
  */
 
-export class MagnetsModel implements TModel {
+export class MagnetsBallModel implements TModel {
   // initial bar magnet model element
-  public readonly barMagnet: BarMagnet;
+  public readonly barMagnets: BarMagnet[] = [];
+  public readonly ball: Ball;
 
   public constructor() {
-    this.barMagnet = new BarMagnet(
+    this.barMagnets.push(new BarMagnet(
       new Dimension2(250, 50),
       new Vector2(0, 0),
       0,
-    );
+    ));
+    this.barMagnets.push(new BarMagnet(
+      new Dimension2(250, 50),
+      new Vector2(200, 0),
+      Math.PI / 2,
+    ));
+    this.ball = new Ball({
+      diameter: 100,
+      position: new Vector2(100, 100),
+    });
   }
 
   /**
@@ -30,6 +41,7 @@ export class MagnetsModel implements TModel {
    * This method is called when the simulation's "Reset All" button is pressed.
    */
   public reset(): void {
-    this.barMagnet.reset();
+    this.barMagnets.forEach(barMagnet => barMagnet.reset());
+    this.ball.reset();
   }
 }

@@ -10,7 +10,7 @@ import { EmptySelfOptions, optionize4 } from "scenerystack/phet-core";
 import { Image } from "scenerystack/scenery";
 import barMagnet_png from "../images/barMagnet_png.js";
 import { Screen, ScreenIcon, ScreenOptions } from "scenerystack/sim";
-import { MagnetsModel } from "./model/MagnetsModel";
+import { MagnetsBallModel } from "./model/MagnetsBallModel.js";
 import { MagnetsScreenView } from "./view/MagnetsScreenView";
 import { DemoSimConstants } from "../common/DemoSimConstants";
 import { DemoSimStrings } from "../DemoSimStrings";
@@ -21,7 +21,7 @@ type SelfOptions = EmptySelfOptions;
 
 type MagnetsScreenOptions = SelfOptions & ScreenOptions;
 
-export class MagnetsScreen extends Screen<MagnetsModel, MagnetsScreenView> {
+export class MagnetsScreen extends Screen<MagnetsBallModel, MagnetsScreenView> {
   public constructor(providedOptions?: MagnetsScreenOptions) {
     const options = optionize4<
       MagnetsScreenOptions,
@@ -40,7 +40,7 @@ export class MagnetsScreen extends Screen<MagnetsModel, MagnetsScreenView> {
     );
 
     super(
-      () => new MagnetsModel(),
+      () => new MagnetsBallModel(),
       (model) => new MagnetsScreenView(model),
       options,
     );
