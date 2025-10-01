@@ -39,6 +39,10 @@ export class BallNode extends ShadedSphereNode {
             this.translation = modelViewTransform.modelToViewPosition(position);
         });
 
+        ball.visibleProperty.link((visible) => {
+            this.visible = visible;
+        });
+
         // ball.colorProperty.link((color) => {
         //     this.mainColor = color;
         // });

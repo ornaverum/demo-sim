@@ -1,8 +1,8 @@
 // Copyright 2013-2024, University of Colorado Boulder
 
 import { EmptySelfOptions, optionize } from "scenerystack/phet-core";
-import { Panel, PanelOptions, RectangularPushButton } from "scenerystack/sun";
-import { MagnetsModel } from "../model/MagnetsBallModel.js";
+import { Checkbox, CheckboxOptions, Panel, PanelOptions, RectangularPushButton } from "scenerystack/sun";
+import { MagnetsBallModel } from "../model/MagnetsBallModel.js";
 import { DemoSimColors } from "../../common/DemoSimColors.js";
 import { DemoSimStrings } from "../../DemoSimStrings.js";
 import { Text, VBox } from "scenerystack/scenery";
@@ -25,7 +25,7 @@ export class MagnetsControlPanel extends Panel {
    * providedOptions - options for the control panel, see Panel.js for options
    */
   public constructor(
-    model: MagnetsModel,
+    model: MagnetsBallModel,
     providedOptions: MagnetsControlPanelOptions,
   ) {
     // Demonstrate a common pattern for specifying options and providing default values
@@ -68,11 +68,17 @@ export class MagnetsControlPanel extends Panel {
       },
     });
 
+    // Toggle Ball Visibility checkbox
+    const toggleBallVisibilityCheckbox = new Checkbox(
+      model.ball.visibleProperty,
+      new Text('Show Ball', { font: new PhetFont(16) })
+   );
+
     // The contents of the control panel
     const content = new VBox({
       align: "center",
       spacing: 10,
-      children: [magnetControlsTitleNode, flipPolarityButton],
+      children: [magnetControlsTitleNode, flipPolarityButton, toggleBallVisibilityCheckbox],
     });
 
     super(content, options);
