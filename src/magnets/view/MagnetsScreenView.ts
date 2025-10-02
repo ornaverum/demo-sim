@@ -7,6 +7,7 @@ import { Vector2 } from "scenerystack/dot";
 import { ModelViewTransform2 } from "scenerystack/phetcommon";
 import { BarMagnetNode } from "./BarMagnetNode";
 import { MagnetsControlPanel } from "./MagnetsControlPanel";
+import { BallControlPanel } from "./BallControlPanel";
 import { DemoSimConstants } from "../../common/DemoSimConstants";
 import { ResetAllButton } from "scenerystack/scenery-phet";
 import { BallNode } from "./BallNode";
@@ -54,6 +55,14 @@ export class MagnetsScreenView extends ScreenView {
       new MagnetsControlPanel(model, {
         right: this.layoutBounds.right - DemoSimConstants.SCREEN_VIEW_X_MARGIN,
         top: this.layoutBounds.top + DemoSimConstants.SCREEN_VIEW_Y_MARGIN,
+      }),
+    );
+
+    // Add the control panel for Ball, positioned at the top-right of the screen.
+    this.addChild(
+      new BallControlPanel(model, {
+        left: this.layoutBounds.left + DemoSimConstants.SCREEN_VIEW_X_MARGIN,
+        bottom: this.layoutBounds.bottom - DemoSimConstants.SCREEN_VIEW_Y_MARGIN,
       }),
     );
 
