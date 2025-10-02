@@ -31,7 +31,7 @@ export class BallNode extends ShadedSphereNode {
             },
             providedOptions,
         );
-        super(modelViewTransform.modelToViewDeltaX(ball.diameter), options);
+        super(modelViewTransform.modelToViewDeltaX(ball.diameterProperty.value), options);
 
         this.ball = ball;
 
@@ -41,6 +41,10 @@ export class BallNode extends ShadedSphereNode {
 
         ball.visibleProperty.link((visible) => {
             this.visible = visible;
+        });
+
+        ball.diameterProperty.link((diameter) => {
+            this.setRadius(modelViewTransform.modelToViewDeltaX(diameter) / 2);
         });
 
         // ball.colorProperty.link((color) => {

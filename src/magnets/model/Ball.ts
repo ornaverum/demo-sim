@@ -18,7 +18,7 @@ export type ParticleOptions = SelfOptions;
 
 export class Ball implements TModel {
 
-    public readonly diameter: number;
+    public readonly diameterProperty: NumberProperty;
     public readonly positionProperty: Property<Vector2>;
     public readonly colorProperty: Property<Color | string>;
     public readonly visibleProperty: Property<boolean> = new Property(true);
@@ -38,13 +38,14 @@ export class Ball implements TModel {
           );
      
         this.isDisposed = false;
-        this.diameter = options.diameter!;
+        this.diameterProperty = new NumberProperty(options.diameter!);
         this.positionProperty = new Property(options.position!);
         this.colorProperty = new Property(options.color!);
         this.visibleProperty = new Property(options.visible!);
     }
 
     public reset():void{
+        this.diameterProperty.reset();
         this.positionProperty.reset();
         this.colorProperty.reset();
         this.visibleProperty.reset();

@@ -1,7 +1,8 @@
 // Copyright 2013-2024, University of Colorado Boulder
 
 import { EmptySelfOptions, optionize } from "scenerystack/phet-core";
-import { Checkbox, CheckboxOptions, Panel, PanelOptions, RectangularPushButton } from "scenerystack/sun";
+import { Checkbox, HSlider, Panel, PanelOptions, RectangularPushButton } from "scenerystack/sun";
+import { Range } from "scenerystack/dot";
 import { MagnetsBallModel } from "../model/MagnetsBallModel.js";
 import { DemoSimColors } from "../../common/DemoSimColors.js";
 import { DemoSimStrings } from "../../DemoSimStrings.js";
@@ -74,11 +75,15 @@ export class MagnetsControlPanel extends Panel {
       new Text('Show Ball', { font: new PhetFont(16) })
    );
 
+   // HSlider to control ball diameter
+     const ballDiameterSlider = new HSlider(model.ball.diameterProperty, 
+      new Range(50, 400)
+    );
     // The contents of the control panel
     const content = new VBox({
       align: "center",
       spacing: 10,
-      children: [magnetControlsTitleNode, flipPolarityButton, toggleBallVisibilityCheckbox],
+      children: [magnetControlsTitleNode, flipPolarityButton, toggleBallVisibilityCheckbox, ballDiameterSlider],
     });
 
     super(content, options);
