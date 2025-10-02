@@ -31,7 +31,7 @@ export class Ball implements TModel {
               // Default values for optional SelfOptions
               diameter: 200,
               position: new Vector2(0, 0),
-              color: DemoSimColors.particleColorProperty.value,
+              color: DemoSimColors.ballColorProperty.value,
               visible: true,
             },
             providedOptions,

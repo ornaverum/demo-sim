@@ -40,6 +40,8 @@ export const DemoSimColors = {
     default: "rgb( 30, 80, 160 )",
   }),
 
+  ballColorProperty: new ProfileColorProperty(namespace, "ball", {default: "pink"}),
+
   magnetsScreenBackgroundColorProperty: new ProfileColorProperty(
     namespace,
     "magnetsBackground",
